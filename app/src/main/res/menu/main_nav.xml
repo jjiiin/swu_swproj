@@ -8,9 +8,6 @@
     <item android:id="@+id/noti" app:showAsAction="ifRoom"
         android:icon="@drawable/noti_nav_selector"
         tools:ignore="MenuTitle" />
-    <item android:id="@+id/commu" app:showAsAction="ifRoom"
-        android:enabled="true" android:icon="@drawable/commu_nav_selector"
-        tools:ignore="MenuTitle" />
     <item android:id="@+id/my" app:showAsAction="ifRoom"
         android:enabled="true" android:icon="@drawable/my_nav_selector"
         tools:ignore="MenuTitle" />

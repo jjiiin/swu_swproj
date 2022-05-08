@@ -3,7 +3,6 @@ package com.swproject.swprojectapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.swproject.swprojectapp.databinding.ActivityMainBinding
-import com.swproject.swprojectapp.mainFragment.CommuFragment
 import com.swproject.swprojectapp.mainFragment.HomeFragment
 import com.swproject.swprojectapp.mainFragment.MyFragment
 import com.swproject.swprojectapp.mainFragment.NotiFragment
@@ -34,10 +33,6 @@ class MainActivity : AppCompatActivity() {
                     R.id.noti -> {
                         val notiFragment = NotiFragment()
                         supportFragmentManager.beginTransaction().replace(R.id.fl_container, notiFragment).commit()
-                    }
-                    R.id.commu -> {
-                        val commuFragment = CommuFragment()
-                        supportFragmentManager.beginTransaction().replace(R.id.fl_container, commuFragment).commit()
                     }
                     R.id.my -> {
                         val myFragment = MyFragment()

@@ -8,6 +8,7 @@
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/home_nav_selector.xml" value="0.2475" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/my_nav_selector.xml" value="0.2475" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/noti_nav_selector.xml" value="0.2475" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/round_corner.xml" value="0.1475" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_join.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_login.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_main.xml" value="0.21739130434782608" />
@@ -16,6 +17,7 @@
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_home.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_my.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_noti.xml" value="0.21693840579710144" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/keyword_item.xml" value="0.536" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/menu/main_nav.xml" value="0.26510416666666664" />
       </map>
     </option>
