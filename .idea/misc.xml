@@ -13,11 +13,15 @@
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_login.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_main.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/activity_splash.xml" value="0.264" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_biz.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_commu.xml" value="0.21693840579710144" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_four.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_home.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_my.xml" value="0.21693840579710144" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_noti.xml" value="0.21693840579710144" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/fragment_security_dept.xml" value="0.2" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/keyword_item.xml" value="0.536" />
+        <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/layout/rv_item_notice.xml" value="0.2" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/menu/main_nav.xml" value="0.26510416666666664" />
       </map>
     </option>
