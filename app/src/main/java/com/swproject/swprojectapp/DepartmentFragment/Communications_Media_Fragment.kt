@@ -34,7 +34,10 @@ class Communications_Media_Fragment : Fragment() {
         rv.addItemDecoration(DividerItemDecoration(context, 1))
 
         //크롤링
-        crawlingThread(1)   //앱 들어가면 1페이지 보이게
+        //딜레이 시키기
+        Handler().postDelayed(Runnable {
+            crawlingThread(1)   //앱 들어가면 1페이지 보이게
+        },250)
 
         view.findViewById<TextView>(R.id.btn1).setOnClickListener {
             crawlingThread(1)

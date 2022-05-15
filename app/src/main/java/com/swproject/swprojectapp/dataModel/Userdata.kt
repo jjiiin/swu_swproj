@@ -4,7 +4,7 @@ data class Userdata(
     val email:String="",
     val nickname:String="",
 
-    val major1:String="",
-    val major2:String="",
-    val major3:String="",
+    val major1:Int=0,
+    val major2:Int=0,
+    val major3:Int=0,
 )

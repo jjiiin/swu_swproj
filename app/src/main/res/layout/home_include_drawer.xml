@@ -25,6 +25,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_one"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="학사" />
+            <TextView
                 android:id="@+id/tv_scholarship"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
@@ -32,18 +39,72 @@
                 android:layout_marginBottom="15dp"
                 android:text="장학" />
             <TextView
+                android:id="@+id/tv_three"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="행사" />
+            <TextView
+                android:id="@+id/tv_four"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="채용/취업" />
+            <TextView
+                android:id="@+id/tv_five"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="일반/봉사" />
+
+            <View
+                android:layout_width="170dp"
+                android:layout_height="1dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/grayLine"/>
+
+
+
+            <TextView
+                android:id="@+id/tv_communication_media"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="언론영상학부" />
+
+
+            <TextView
+                android:id="@+id/tv_biz"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="경영학과" />
+
+            <TextView
+                android:id="@+id/tv_security_dept"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="정보보호학과" />
+
+            <TextView
                 android:id="@+id/tv_software"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:text="소프트웨어융합학과" />
-            <TextView
-                android:id="@+id/tv_communication_media"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="언론영상학부" />
+
+
+
+
+
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

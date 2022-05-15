@@ -91,7 +91,7 @@ class SecurityDeptFragment : Fragment() {
                 for (element in elements) {
                     val title: String = element.select("td").get(1).text()//get(2)=첨부파일
                     val date: String = element.select("td").get(2).text()
-                    val link: String = element.select("td a").attr("href").toString()
+                    val link: String = "http://security.swu.ac.kr"+element.select("td a").attr("href")
                     val noticeData = NoticeData(title, date, link)
 
                     noticeDatas.add(noticeData)

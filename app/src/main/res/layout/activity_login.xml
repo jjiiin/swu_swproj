@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="swutice"
+        android:text="SWUTICE"
         android:textSize="64dp"
         android:textStyle="bold"
         android:layout_gravity="center"

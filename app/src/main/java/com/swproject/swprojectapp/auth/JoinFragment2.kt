@@ -49,11 +49,12 @@ class JoinFragment2 :Fragment() {
         binding.joinMajor2.setSelection(0)
         binding.joinMajor3.setSelection(0)
 
-        var major1 = ""
+        var major1 = 0
         var go = false;
         binding.joinMajor1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                major1 = binding.joinMajor1.selectedItem.toString()
+//                major1 = binding.joinMajor1.selectedItem.toString()
+                major1 = binding.joinMajor1.selectedItemPosition
                 if(binding.joinMajor1.selectedItemPosition != 0)
                     go = true
             }
@@ -62,25 +63,27 @@ class JoinFragment2 :Fragment() {
             }
         }
 
-        var major2 = ""
+        var major2 = 0
         binding.joinMajor2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                major2 = binding.joinMajor2.selectedItem.toString()
+//                major2 = binding.joinMajor2.selectedItem.toString()
+                major2 = binding.joinMajor2.selectedItemPosition
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                major2 = binding.joinMajor2.selectedItem.toString()
+                major2 = binding.joinMajor2.selectedItemPosition
             }
         }
 
-        var major3 = ""
+        var major3 = 0
         binding.joinMajor3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                major3 = binding.joinMajor3.selectedItem.toString()
+//                major3 = binding.joinMajor3.selectedItem.toString()
+                major3 = binding.joinMajor3.selectedItemPosition
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                major3 = binding.joinMajor2.selectedItem.toString()
+                major3 = binding.joinMajor3.selectedItemPosition
             }
         }
 
@@ -99,7 +102,7 @@ class JoinFragment2 :Fragment() {
                 activity?.let { it1 ->
                     auth.createUserWithEmailAndPassword(id, pwd).addOnCompleteListener(it1) { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(context, "가입성공", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "가입성공", Toast.LENGTH_SHORT).show()
 
                             //회원 데이터베이스에 이메일, 닉네임, 전공 정보 저장
                             val userData = Userdata(id, name, major1, major2, major3)
@@ -133,7 +136,7 @@ class JoinFragment2 :Fragment() {
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                         } else {
-                            Toast.makeText(context, "가입실패", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "가입실패", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
