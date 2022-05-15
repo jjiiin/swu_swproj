@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/nickArea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:background="@drawable/dialog_edittext"
+        android:hint="닉네임"/>
+
+    <EditText
+        android:id="@+id/idArea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:paddingLeft="15dp"
+        android:background="@drawable/dialog_edittext"
+        android:hint="이메일"/>
+    <EditText
+        android:id="@+id/pwdArea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/dialog_edittext"
+        android:hint="비밀번호"/>
+    <EditText
+        android:id="@+id/pwdCheckArea"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/dialog_edittext"
+        android:hint="비밀번호 확인"/>
+    <Button
+        android:id="@+id/joinNextBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/main"
+        android:layout_gravity="center"
+        android:text="다음"
+        android:textSize="14dp"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>
+</layout>

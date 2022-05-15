@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="majorList">
+        <item>선택안함</item>
+
+        <item>국어국문학과</item>
+        <item>영어영문학과</item>
+        <item>불어불문학과</item>
+        <item>독어독문학과</item>
+        <item>중어중문학과</item>
+        <item>일어일문학과</item>
+        <item>사학과</item>
+        <item>기독교학과</item>
+
+        <item>경제학과</item>
+        <item>문헌정보학과</item>
+        <item>사회복지학과</item>
+        <item>아동학과</item>
+        <item>행정학과</item>
+        <item>언론영상학부</item>
+        <item>교육심리학과</item>
+        <item>스포츠운동과학과</item>
+
+        <item>수학과</item>
+        <item>화학생명환경과학부</item>
+        <item>원예생명조경학과</item>
+        <item>식품응용시스템학부</item>
+
+        <item>경영학과</item>
+        <item>패션산업학과</item>
+        <item>디지털미디어학과</item>
+        <item>정보보호학과</item>
+        <item>소프트웨어융합학과</item>
+        <item>데이터사이언스학과</item>
+        <item>산업디자인학과</item>
+
+        <item>현대미술전공</item>
+        <item>공예전공</item>
+        <item>시각디자인전공</item>
+        <item>첨단미디어디자인전공공</item>
+
+       <item>자율전공학부</item>
+    </string-array>
+
+</resources>

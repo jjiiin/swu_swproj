@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pingu/.gradle/caches/transforms-3/d55daa4bd0344635818e9a006400d3cc/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_join.xml" value="0.2" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join1.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join2.xml" value="0.2390625" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_my.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_noti.xml" value="0.20925925925925926" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/commu_nav_selector.xml" value="0.2475" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/dialog_edittext.xml" value="0.206" />
         <entry key="..\:/Users/wjdwl/AndroidStudioProjects/swprojectapp/app/src/main/res/drawable/home_nav_selector.xml" value="0.2475" />
@@ -26,7 +34,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
