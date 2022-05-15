@@ -95,7 +95,7 @@ class BizFragment : Fragment() {
                     val date: String = element.select("td").get(3).text()
                     val value: String = element.select("td a").attr("value").toString()
                     val link="https://bizswu.swu.ac.kr/bbs/bbs/view.php?bbs_no=12&data_no=${value}&page_no=${page}&sub_id="
-                    val noticeData = NoticeData(title,"",date,link)
+                    val noticeData = NoticeData(title,date,link)
                     Log.d("notice_",noticeData.toString())
                     noticeDatas.add(noticeData)
                 }

@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_communications__media_.xml" value="0.3875" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.28888888888888886" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_scholarship.xml" value="0.3875" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_software.xml" value="0.3875" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/home_include_drawer.xml" value="0.22" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/menu/main_nav.xml" value="0.28888888888888886" />
+        <entry key="..\:/Users/gju06/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.3875" />
         <entry key="..\:/Users/pingu/.gradle/caches/transforms-3/d55daa4bd0344635818e9a006400d3cc/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_join.xml" value="0.2" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_login.xml" value="0.1" />
