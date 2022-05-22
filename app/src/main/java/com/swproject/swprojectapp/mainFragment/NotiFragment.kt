@@ -41,11 +41,32 @@ class NotiFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_noti, container, false)
 
         auth= Firebase.auth
+
         //users-(사용자 uid)-keyword에 keyword 등록하기
         binding.saveBtn.setOnClickListener {
             val keyword=binding.kwEt.text.toString()
             FBRef.usersRef.child(auth.currentUser!!.uid).child("keyword").push()
                 .setValue(keyword)
+
+            //키워드 리스트에 등록하기
+            FBRef.keywordRef.push().setValue(keyword)
+
+
+            //user-token값 받아오기
+            //키워드 구독 리스트에 등록하기
+            var user_token=""
+            val tokenRef =FBRef.usersRef.child(auth.currentUser!!.uid).child("token")
+            tokenRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    user_token=snapshot.getValue(String::class.java)!!
+                    Log.d("token",user_token)
+                    FBRef.keyword_Subscribe_Ref.child(keyword).setValue(user_token)
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+
         }
         //RVAdapter장착하기
         val rv = binding.keywordRV
