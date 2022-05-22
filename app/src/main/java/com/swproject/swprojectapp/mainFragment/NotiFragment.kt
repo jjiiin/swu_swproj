@@ -60,7 +60,7 @@ class NotiFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     user_token=snapshot.getValue(String::class.java)!!
                     Log.d("token",user_token)
-                    FBRef.keyword_Subscribe_Ref.child(keyword).setValue(user_token)
+                    FBRef.keyword_Subscribe_Ref.child(keyword).push().setValue(user_token)
                 }
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
