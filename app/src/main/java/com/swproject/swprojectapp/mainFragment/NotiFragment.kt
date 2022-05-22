@@ -56,6 +56,18 @@ class NotiFragment : Fragment() {
             testPush(pushModel)
         }
 
+        //알림 테스트
+        val title="제목"
+        val body="내용"
+        val time = Calendar.getInstance().time
+        val notiModel = NotiModel(
+            title,
+            body,
+            time
+        )
+        val pushModel = PushNotification(notiModel, "e1HHSQMySwaUbKFaByPZ-p:APA91bHm0h_rtJQ0BfVWN3OPLSVobz7_uo_-zx9eTsMdgooory1vyWQGwpm6nlIHfHts8N6hk_LksCeHYGoryqrrVdTPrmWsUSmdhIrsoHjGWAXecsmtYcgU_vzhu0nyqzaTRLEPcS5h")
+        testPush(pushModel)
+
         //users-(사용자 uid)-keyword에 keyword 등록하기
         binding.saveBtn.setOnClickListener {
             val keyword=binding.kwEt.text.toString()
@@ -67,6 +79,8 @@ class NotiFragment : Fragment() {
 
             //키워드 구독 리스트에 등록하기
             keyWordSubscribe(keyword)
+
+
 
         }
         //RVAdapter장착하기
@@ -97,10 +111,14 @@ class NotiFragment : Fragment() {
         })
 
 
-
         return binding.root
     }
 
+
+    private fun testPush(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        Log.d("pushNoti", notification.toString())
+        RetrofitInstance.api.postNotification(notification)
+    }
 
     private fun keyWordSubscribe(keyword:String){
         var user_token=""
@@ -117,10 +135,6 @@ class NotiFragment : Fragment() {
         })
     }
 
-    private fun testPush(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
-        Log.d("pushNoti", notification.toString())
-        RetrofitInstance.api.postNotification(notification)
-    }
 
 
 }

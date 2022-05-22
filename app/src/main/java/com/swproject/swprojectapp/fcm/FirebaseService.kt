@@ -4,6 +4,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -27,13 +28,21 @@ class FirebaseService : FirebaseMessagingService() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
-        val title = message.data["title"].toString()
-        val body = message.data["content"].toString()
-        val date = Calendar.getInstance().time
+        Log.d("fcm_",message.toString())
+        if(message.data.isNotEmpty()) {
+            val title = message.data["title"].toString()
+            val body = message.data["content"].toString()
+            val date = Calendar.getInstance().time
+            createNotificationChannel()
+            sendNotification(title, body)
+            notiList(title,body,date)
+            Log.d("fcm_",title+body)
+        }else{
+            Log.d("fcm_",message.data.toString()+"에러 발생")
+        }
+//        val title=message.notification?.title.toString()
+//        val body=message.notification?.body.toString()
 
-        createNotificationChannel()
-        sendNotification(title, body)
-        notiList(title,body,date)
     }
 
     private fun createNotificationChannel(){
