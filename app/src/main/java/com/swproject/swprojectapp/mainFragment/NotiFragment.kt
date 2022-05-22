@@ -27,6 +27,7 @@ import com.swproject.swprojectapp.utils.FBRef
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 
 class NotiFragment : Fragment() {
@@ -53,10 +54,11 @@ class NotiFragment : Fragment() {
             val token = it.getValue().toString()
             val notiModel = NotiModel("제목입니다","내용입니다")
             val pushModel = PushNotification(notiModel, token)
+            Log.d("pushNoti", token.toString())
             testPush(pushModel)
         }
 
-        //알림 테스트
+       /* //알림 테스트
         val title="제목"
         val body="내용"
         val time = Calendar.getInstance().time
@@ -66,7 +68,7 @@ class NotiFragment : Fragment() {
             time
         )
         val pushModel = PushNotification(notiModel, "e1HHSQMySwaUbKFaByPZ-p:APA91bHm0h_rtJQ0BfVWN3OPLSVobz7_uo_-zx9eTsMdgooory1vyWQGwpm6nlIHfHts8N6hk_LksCeHYGoryqrrVdTPrmWsUSmdhIrsoHjGWAXecsmtYcgU_vzhu0nyqzaTRLEPcS5h")
-        testPush(pushModel)
+        testPush(pushModel)*/
 
         //users-(사용자 uid)-keyword에 keyword 등록하기
         binding.saveBtn.setOnClickListener {
