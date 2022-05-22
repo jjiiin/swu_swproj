@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.swproject.swprojectapp">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Swprojectapp"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".Bookmark_Activity"
+            android:exported="false" />
         <activity
             android:name=".auth.JoinActivity"
             android:exported="false" />
@@ -24,13 +27,14 @@
             android:name=".auth.SplashActivity"
             android:exported="true">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
+
 </manifest>

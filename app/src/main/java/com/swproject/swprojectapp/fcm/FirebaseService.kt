@@ -21,7 +21,7 @@ class FirebaseService : FirebaseMessagingService() {
     private var token:String = ""
     //사용자의 토큰..딱히 필요 없을 듯
     override fun onNewToken(token: String) {
-        this.token = super.onNewToken(token).toString()
+        super.onNewToken(token)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

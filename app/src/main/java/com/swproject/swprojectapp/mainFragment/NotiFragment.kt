@@ -20,7 +20,13 @@ import com.google.firebase.ktx.Firebase
 import com.swproject.swprojectapp.Adapter.kwAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.databinding.FragmentNotiBinding
+import com.swproject.swprojectapp.fcm.NotiModel
+import com.swproject.swprojectapp.fcm.PushNotification
+import com.swproject.swprojectapp.fcm.RetrofitInstance
 import com.swproject.swprojectapp.utils.FBRef
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class NotiFragment : Fragment() {
@@ -41,6 +47,14 @@ class NotiFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_noti, container, false)
 
         auth= Firebase.auth
+
+        //알림보내기 테스트
+        FBRef.usersRef.child(FirebaseAuth.getInstance().currentUser!!.uid).child("token").get().addOnSuccessListener {
+            val token = it.getValue().toString()
+            val notiModel = NotiModel("제목입니다","내용입니다")
+            val pushModel = PushNotification(notiModel, token)
+            testPush(pushModel)
+        }
 
         //users-(사용자 uid)-keyword에 keyword 등록하기
         binding.saveBtn.setOnClickListener {
@@ -103,6 +117,10 @@ class NotiFragment : Fragment() {
         })
     }
 
+    private fun testPush(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        Log.d("pushNoti", notification.toString())
+        RetrofitInstance.api.postNotification(notification)
+    }
 
 
 }

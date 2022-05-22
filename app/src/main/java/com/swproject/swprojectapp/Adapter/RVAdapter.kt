@@ -5,6 +5,8 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +14,7 @@ import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
 
 class RVAdapter(val items: MutableList<NoticeData>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
-
+    var bookmarkclick = false
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.rv_item_notice, parent, false)
@@ -46,6 +48,13 @@ class RVAdapter(val items: MutableList<NoticeData>) : RecyclerView.Adapter<RVAda
         fun bindItems(item: NoticeData) {
             itemView.findViewById<TextView>(R.id.tv_title).text = item.title
             itemView.findViewById<TextView>(R.id.tv_date).text = item.date
+           itemView.findViewById<CheckBox>(R.id.checkbox_bookmark).setOnCheckedChangeListener { button, isChecked ->
+               if(isChecked){
+                   //체크되면
+               }else{
+                   //체크해제되면
+               }
+           }
         }
     }
 }
