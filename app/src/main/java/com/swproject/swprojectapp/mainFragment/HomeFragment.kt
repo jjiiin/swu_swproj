@@ -2,6 +2,7 @@ package com.swproject.swprojectapp.mainFragment
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,19 +11,26 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.swproject.swprojectapp.DepartmentFragment.BizFragment
-import com.swproject.swprojectapp.DepartmentFragment.Communications_Media_Fragment
-import com.swproject.swprojectapp.DepartmentFragment.SecurityDeptFragment
-import com.swproject.swprojectapp.DepartmentFragment.Software_Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.ktx.Firebase
+import com.swproject.swprojectapp.DepartmentFragment.*
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.SWU.Scholarship_Fragment
+import com.swproject.swprojectapp.utils.FBRef
 
 
 class HomeFragment : Fragment() {
+    private lateinit var auth: FirebaseAuth
+
+    var dept_ids = arrayOf(R.id.tv_korean, R.id.tv_english, R.id.tv_french, R.id.tv_german, R.id.tv_japanese, R.id.tv_history, R.id.tv_christian,
+    R.id.tv_communication_media, R.id.tv_biz, R.id.tv_digitalMedia, R.id.tv_security_dept, R.id.tv_software)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -30,6 +38,36 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.home_include_drawer, container, false)
+        auth= Firebase.auth
+
+        val myRef = FBRef.usersRef.child(auth.currentUser!!.uid)
+        var select_dept = arrayOfNulls<Int>(3)
+        // 선택한 학과 가져오기
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                select_dept[0] = Integer.parseInt(snapshot.child("major1").value.toString())
+                select_dept[1] = Integer.parseInt(snapshot.child("major2").value.toString())
+                select_dept[2] = Integer.parseInt(snapshot.child("major3").value.toString())
+
+                // 선택한 학과만 메뉴에 보이기
+                var depts_array = resources.getStringArray(R.array.majorList)
+                for (i in 0 until dept_ids.count()){
+                    var gone = true
+                    for(j in 0..2)
+                        if((depts_array[select_dept[j]!!].equals(view.findViewById<TextView>(dept_ids[i]).text)))
+                            gone = false
+                    if(gone)
+                        view.findViewById<TextView>(dept_ids[i]).visibility = View.GONE
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                // 읽어오기 실패했을 경우
+            }
+        })
+
+
+
+
 
         //처음에 학사 공지 자동으로 보이게
         parentFragmentManager.beginTransaction().replace(R.id.view, OneFragement()).commit()
@@ -84,6 +122,58 @@ class HomeFragment : Fragment() {
         }
 
 
+        // 인문대
+        view.findViewById<TextView>(R.id.tv_korean).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "국어국문학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, Korean_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_english).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "영어영문학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, Korean_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_french).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "불어불문학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, French_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_german).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "독어독문학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, German_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_japanese).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "일어일문학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, Japanese_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_history).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "사학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, History_Fragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_christian).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "기독교학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, Christian_Fragment()).commit()
+            },250)
+        }
+
+
 
 
 
@@ -104,6 +194,13 @@ class HomeFragment : Fragment() {
             Handler().postDelayed(Runnable {
                 view.findViewById<TextView>(R.id.title).text = "경영학과"
                 parentFragmentManager.beginTransaction().replace(R.id.view, BizFragment()).commit()
+            },250)
+        }
+        view.findViewById<TextView>(R.id.tv_digitalMedia).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "디지털미디어학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, DigitalMedia_fragment()).commit()
             },250)
         }
         view.findViewById<TextView>(R.id.tv_security_dept).setOnClickListener {

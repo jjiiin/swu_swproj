@@ -68,6 +68,65 @@
 
 
 
+
+            <TextView
+                android:id="@+id/tv_korean"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="국어국문학과" />
+
+            <TextView
+                android:id="@+id/tv_english"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="영어영문학과" />
+
+            <TextView
+                android:id="@+id/tv_french"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="불어불문학과" />
+
+            <TextView
+                android:id="@+id/tv_german"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="독어독문학과" />
+
+            <TextView
+                android:id="@+id/tv_japanese"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="일어일문학과" />
+
+            <TextView
+                android:id="@+id/tv_history"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="사학과" />
+
+            <TextView
+                android:id="@+id/tv_christian"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="기독교학과" />
+
+
+
             <TextView
                 android:id="@+id/tv_communication_media"
                 android:textColor="@color/black"
@@ -84,6 +143,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:text="경영학과" />
+
+            <TextView
+                android:id="@+id/tv_digitalMedia"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="디지털미디어학과" />
 
             <TextView
                 android:id="@+id/tv_security_dept"
