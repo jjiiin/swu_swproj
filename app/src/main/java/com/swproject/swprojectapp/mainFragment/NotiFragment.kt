@@ -51,21 +51,8 @@ class NotiFragment : Fragment() {
             //키워드 리스트에 등록하기
             FBRef.keywordRef.push().setValue(keyword)
 
-
-            //user-token값 받아오기
             //키워드 구독 리스트에 등록하기
-            var user_token=""
-            val tokenRef =FBRef.usersRef.child(auth.currentUser!!.uid).child("token")
-            tokenRef.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    user_token=snapshot.getValue(String::class.java)!!
-                    Log.d("token",user_token)
-                    FBRef.keyword_Subscribe_Ref.child(keyword).push().setValue(user_token)
-                }
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
+            keyWordSubscribe(keyword)
 
         }
         //RVAdapter장착하기
@@ -99,6 +86,23 @@ class NotiFragment : Fragment() {
 
         return binding.root
     }
+
+
+    private fun keyWordSubscribe(keyword:String){
+        var user_token=""
+        val tokenRef =FBRef.usersRef.child(auth.currentUser!!.uid).child("token")
+        tokenRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                user_token=snapshot.getValue(String::class.java)!!
+                Log.d("token",user_token)
+                FBRef.keyword_Subscribe_Ref.child(keyword).push().setValue(user_token)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
 
 
 }
