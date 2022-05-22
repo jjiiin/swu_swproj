@@ -67,7 +67,7 @@ class NotiFragment : Fragment() {
             body,
             time
         )
-        val pushModel = PushNotification(notiModel, "e1HHSQMySwaUbKFaByPZ-p:APA91bHm0h_rtJQ0BfVWN3OPLSVobz7_uo_-zx9eTsMdgooory1vyWQGwpm6nlIHfHts8N6hk_LksCeHYGoryqrrVdTPrmWsUSmdhIrsoHjGWAXecsmtYcgU_vzhu0nyqzaTRLEPcS5h")
+        val pushModel = PushNotification(notiModel, ${token})
         testPush(pushModel)*/
 
         //users-(사용자 uid)-keyword에 keyword 등록하기

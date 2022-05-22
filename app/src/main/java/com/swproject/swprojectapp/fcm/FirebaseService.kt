@@ -30,8 +30,10 @@ class FirebaseService : FirebaseMessagingService() {
         super.onMessageReceived(message)
         Log.d("fcm_",message.toString())
         if(message.data.isNotEmpty()) {
-            val title = message.data["title"].toString()
-            val body = message.data["content"].toString()
+//            val title = message.data["title"].toString()
+//            val body = message.data["content"].toString()
+            val title=message.notification?.title.toString()
+            val body=message.notification?.body.toString()
             val date = Calendar.getInstance().time
             createNotificationChannel()
             sendNotification(title, body)
@@ -40,8 +42,6 @@ class FirebaseService : FirebaseMessagingService() {
         }else{
             Log.d("fcm_",message.data.toString()+"에러 발생")
         }
-//        val title=message.notification?.title.toString()
-//        val body=message.notification?.body.toString()
 
     }
 
