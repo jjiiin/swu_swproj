@@ -20,7 +20,14 @@ import com.google.firebase.ktx.Firebase
 import com.swproject.swprojectapp.Adapter.kwAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.databinding.FragmentNotiBinding
+import com.swproject.swprojectapp.fcm.NotiModel
+import com.swproject.swprojectapp.fcm.PushNotification
+import com.swproject.swprojectapp.fcm.RetrofitInstance
 import com.swproject.swprojectapp.utils.FBRef
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.util.*
 
 
 class NotiFragment : Fragment() {
@@ -42,6 +49,18 @@ class NotiFragment : Fragment() {
 
         auth= Firebase.auth
 
+        //알림 테스트
+        val title="제목"
+        val body="내용"
+        val time = Calendar.getInstance().time
+        val notiModel = NotiModel(
+            title,
+            body,
+            time
+        )
+        val pushModel = PushNotification(notiModel, "e1HHSQMySwaUbKFaByPZ-p:APA91bHm0h_rtJQ0BfVWN3OPLSVobz7_uo_-zx9eTsMdgooory1vyWQGwpm6nlIHfHts8N6hk_LksCeHYGoryqrrVdTPrmWsUSmdhIrsoHjGWAXecsmtYcgU_vzhu0nyqzaTRLEPcS5h")
+        testPush(pushModel)
+
         //users-(사용자 uid)-keyword에 keyword 등록하기
         binding.saveBtn.setOnClickListener {
             val keyword=binding.kwEt.text.toString()
@@ -53,6 +72,8 @@ class NotiFragment : Fragment() {
 
             //키워드 구독 리스트에 등록하기
             keyWordSubscribe(keyword)
+
+
 
         }
         //RVAdapter장착하기
@@ -83,10 +104,14 @@ class NotiFragment : Fragment() {
         })
 
 
-
         return binding.root
     }
 
+
+    private fun testPush(notification: PushNotification) = CoroutineScope(Dispatchers.IO).launch {
+        Log.d("pushNoti", notification.toString())
+        RetrofitInstance.api.postNotification(notification)
+    }
 
     private fun keyWordSubscribe(keyword:String){
         var user_token=""
