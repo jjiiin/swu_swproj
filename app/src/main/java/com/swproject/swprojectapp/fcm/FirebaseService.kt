@@ -2,7 +2,9 @@ package com.swproject.swprojectapp.fcm
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
@@ -13,6 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.swproject.swprojectapp.PushLinkActivity
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.utils.FBRef
 import java.util.*
@@ -28,17 +31,19 @@ class FirebaseService : FirebaseMessagingService() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onMessageReceived(message: RemoteMessage) {
         super.onMessageReceived(message)
-        Log.d("fcm_",message.toString())
+        //Log.d("fcm_",message.toString())
         if(message.data.isNotEmpty()) {
 //            val title = message.data["title"].toString()
 //            val body = message.data["content"].toString()
             val title=message.notification?.title.toString()
             val body=message.notification?.body.toString()
             val date = Calendar.getInstance().time
+            val link=message.data?.getValue("URL").toString()
+            Log.d("fcm_",message.data?.getValue("URL").toString())
             createNotificationChannel()
-            sendNotification(title, body)
+            sendNotification(title, body, link)
             notiList(title,body,date)
-            Log.d("fcm_",title+body)
+
         }else{
             Log.d("fcm_",message.data.toString()+"에러 발생")
         }
@@ -61,11 +66,16 @@ class FirebaseService : FirebaseMessagingService() {
         }
     }
 
-    private fun sendNotification(title:String, body:String){
+    private fun sendNotification(title:String, body:String,link:String){
+        val intent= Intent(this, PushLinkActivity::class.java)
+        intent.putExtra("link",link)
+        val mPendingIntent =
+            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         var builder = NotificationCompat.Builder(this,"Test_Channel")
             .setSmallIcon(R.drawable.noti)
             .setContentTitle(title)
             .setContentText(body)
+            .setContentIntent(mPendingIntent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
         with(NotificationManagerCompat.from(this)){
             notify(123,builder.build())
