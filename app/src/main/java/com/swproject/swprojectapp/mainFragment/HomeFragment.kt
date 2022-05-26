@@ -63,7 +63,7 @@ class HomeFragment : Fragment() {
                 select_dept[1] = Integer.parseInt(snapshot.child("major2").value.toString())
                 select_dept[2] = Integer.parseInt(snapshot.child("major3").value.toString())
 
-                // 선택한 학과만 메뉴에 보이기
+                 //선택한 학과만 메뉴에 보이기
                 var depts_array = resources.getStringArray(R.array.majorList)
                 for (i in 0 until dept_ids.count()) {
                     var gone = true
