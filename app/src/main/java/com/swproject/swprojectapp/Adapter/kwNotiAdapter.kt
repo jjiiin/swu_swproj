@@ -18,7 +18,7 @@ class kwNotiAdapter(val items:MutableList<kwModel>) : RecyclerView.Adapter<kwNot
 
     override fun onBindViewHolder(holder: kwNotiAdapter.ViewHolder, position: Int) {
         val item=items[position]
-        holder.body.text=item.body
+        holder.body.text=item.dept+" - "+item.body
         //시간
         val calendar:Calendar = Calendar.getInstance()
         Log.d("time_1",calendar.get(Calendar.YEAR).toString())
