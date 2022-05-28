@@ -53,6 +53,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.home_include_drawer, container, false)
         auth = Firebase.auth
+        val res = resources
 
         val myRef = FBRef.usersRef.child(auth.currentUser!!.uid)
         var select_dept = arrayOfNulls<Int>(3)
@@ -64,7 +65,7 @@ class HomeFragment : Fragment() {
                 select_dept[2] = Integer.parseInt(snapshot.child("major3").value.toString())
 
                  //선택한 학과만 메뉴에 보이기
-                var depts_array = resources.getStringArray(R.array.majorList)
+                var depts_array = res.getStringArray(R.array.majorList)
                 for (i in 0 until dept_ids.count()) {
                     var gone = true
                     for (j in 0..2)
