@@ -12,6 +12,5 @@ class PushLinkActivity : AppCompatActivity() {
         var link=intent.getStringExtra("link")
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
         startActivity(intent)
-        finish()
     }
 }
