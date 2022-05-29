@@ -6,7 +6,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,17 +19,18 @@ import com.swproject.swprojectapp.dataModel.NoticeData
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
+import java.lang.Exception
 import kotlin.concurrent.thread
 
-class Software_Fragment : Fragment() {
+class IndustrialDesign_Fragment : Fragment() {
     val noticeDatas = mutableListOf<NoticeData>()
     val rvAdapter = RVAdapter(noticeDatas)
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_software, container, false)
+        val view = inflater.inflate(R.layout.fragment_one, container, false)
         val rv = view.findViewById<RecyclerView>(R.id.rv)
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)
@@ -38,7 +41,6 @@ class Software_Fragment : Fragment() {
         Handler().postDelayed(Runnable {
             crawlingThread(1)   //앱 들어가면 1페이지 보이게
         },250)
-
         view.findViewById<TextView>(R.id.btn1).setOnClickListener {
             crawlingThread(1)
         }
@@ -72,34 +74,39 @@ class Software_Fragment : Fragment() {
         return view
     }
 
-    fun crawlingThread(page: Int) {
+    fun crawlingThread(page:Int) {
         //스레드 생성
         thread {
-            val URL =
-                "http://swuswc.cafe24.com/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/%ED%95%99%EA%B3%BC-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?pageid=${page}"
-            val doc: Document = Jsoup.connect(URL).get()
-
-            val elements: Elements = doc.select("div.kboard-list tbody").select("tr")
-            if (elements != null) {
-                noticeDatas.clear()
-                for (element in elements) {
-                    if(page>1 && element.className().equals("kboard-list-notice"))
-                        continue
-                    val title: String =
-                        element.getElementsByClass("kboard-list-title").text()
-                    val date: String = element.getElementsByClass("kboard-list-date").text()
-                    val link: String =
-                        "http://swuswc.cafe24.com/" + element.getElementsByTag("a").attr("href")
-                    val noticeData = NoticeData(title, date, link)
-                    noticeDatas.add(noticeData)
+            val URL = "http://swuid.hosting.paran.com/wp/?cat=1&paged=${page}"
+            try {
+                val doc: Document = Jsoup.connect(URL).get()
+                val elements: Elements = doc.select("section.site-content").select("article")
+                if (elements != null) {
+                    noticeDatas.clear()
+                    for (element in elements) {
+                        val title = element.getElementsByClass("entry-title").text()
+                        val datetemp = element.getElementsByClass("entry-date").text()
+                        val arr = datetemp.split("년 ", "월 ", "일")
+                        val date = arr[0]+"-"+arr[1]+"-"+arr[2]
+                        if((title != "")){
+                            val link = element.getElementsByTag("a").attr("href")
+                            val noticeData = NoticeData(title,date, link)
+                            noticeDatas.add(noticeData)
+                        }
+                    }
+                    //UI에 접근할 수 있음
+                    requireActivity().runOnUiThread {
+                        rvAdapter.notifyDataSetChanged()
+                    }
                 }
-
+            } catch (e : Exception){
                 //UI에 접근할 수 있음
                 requireActivity().runOnUiThread {
-                    rvAdapter.notifyDataSetChanged()
+                    Toast.makeText(context,"페이지가 없습니다",Toast.LENGTH_LONG).show()
                 }
             }
         }.join()
+
 
     }
 }

@@ -125,7 +125,37 @@
                 android:layout_marginBottom="15dp"
                 android:text="기독교학과" />
 
+            <TextView
+                android:id="@+id/tv_library"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="문헌정보학과" />
 
+            <TextView
+                android:id="@+id/tv_socialwelfare"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="사회복지학과" />
+
+            <TextView
+                android:id="@+id/tv_children"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="아동학과" />
+
+            <TextView
+                android:id="@+id/tv_publicAdministration"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="행정학과" />
 
             <TextView
                 android:id="@+id/tv_communication_media"
@@ -135,6 +165,45 @@
                 android:layout_marginBottom="15dp"
                 android:text="언론영상학부" />
 
+            <TextView
+                android:id="@+id/tv_eduPsychology"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="교육심리학과" />
+
+            <TextView
+                android:id="@+id/tv_sports"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="스포츠운동과학과" />
+
+            <TextView
+                android:id="@+id/tv_chemistry"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="화학생명환경과학부" />
+
+            <TextView
+                android:id="@+id/tv_gardening"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="원예생명조경학과" />
+
+            <TextView
+                android:id="@+id/tv_food"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="식품응용시스템학부" />
 
             <TextView
                 android:id="@+id/tv_biz"
@@ -167,6 +236,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:text="소프트웨어융합학과" />
+
+            <TextView
+                android:id="@+id/tv_industrialDesign"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="산업디자인학과" />
 
 
 
