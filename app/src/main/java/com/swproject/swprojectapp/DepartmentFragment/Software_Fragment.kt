@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -88,8 +90,15 @@ class Software_Fragment : Fragment() {
                     val date: String = element.getElementsByClass("kboard-list-date").text()
                     val link: String =
                         "http://swuswc.cafe24.com/" + element.getElementsByTag("a").attr("href")
-                    val noticeData = NoticeData(title, date, link)
+                    val link1 = element.getElementsByTag("a").attr("href")
+                    val link2 = link1.split("&uid=")
+                    val link3 = link2[1].split("&")
+                    val id = link3[0]
+                    val noticeData = NoticeData(title, date, link, "software" + id)
                     noticeDatas.add(noticeData)
+                    //북마크 저장할때 사용할 키
+                    //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                    //pushKeyList.add("software" + id)
                 }
 
                 //UI에 접근할 수 있음

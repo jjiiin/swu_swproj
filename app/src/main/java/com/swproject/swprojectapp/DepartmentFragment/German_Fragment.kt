@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -85,8 +87,12 @@ class German_Fragment : Fragment() {
                     val date = element.getElementsByClass("text-center regdate").text()
                     if((title != "")){
                         val link = "https://german.swu.ac.kr/bbs/bbs/view.php?bbs_no=6&data_no=" + element.getElementsByTag("a").attr("value")+"&page_no=${page}"
-                        val noticeData = NoticeData(title,date, link)
+                        val id = element.getElementsByTag("a").attr("value")
+                        val noticeData = NoticeData(title,date, link, "german" + id)
                         noticeDatas.add(noticeData)
+                        //북마크 저장할때 사용할 키
+                        //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                        //pushKeyList.add("german" + id)
                     }
 
                 }

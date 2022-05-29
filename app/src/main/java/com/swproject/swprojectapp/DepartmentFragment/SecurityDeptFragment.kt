@@ -2,6 +2,7 @@ package com.swproject.swprojectapp.DepartmentFragment
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -22,7 +25,6 @@ import kotlin.concurrent.thread
 class SecurityDeptFragment : Fragment() {
     val noticeDatas = mutableListOf<NoticeData>()
     val rvAdapter = RVAdapter(noticeDatas)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -92,9 +94,15 @@ class SecurityDeptFragment : Fragment() {
                     val title: String = element.select("td").get(1).text()//get(2)=첨부파일
                     val date: String = element.select("td").get(2).text()
                     val link: String = "http://security.swu.ac.kr"+element.select("td a").attr("href")
-                    val noticeData = NoticeData(title, date, link)
+                    val link1 = element.select("td a").attr("href")
+                    val link2 = link1.split("&idx=")
+                    val id = link2[1]
+                    val noticeData = NoticeData(title, date, link, "security" + id)
 
                     noticeDatas.add(noticeData)
+                    //북마크 저장할때 사용할 키
+                    //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                    //pushKeyList.add("security" + id)
                 }
 
                 //UI에 접근할 수 있음

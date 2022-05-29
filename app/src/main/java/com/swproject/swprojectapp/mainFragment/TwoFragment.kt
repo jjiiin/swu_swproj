@@ -1,4 +1,4 @@
-package com.swproject.swprojectapp.SWU
+package com.swproject.swprojectapp.mainFragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -14,12 +14,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 import kotlin.concurrent.thread
 
-class Scholarship_Fragment : Fragment() {
+class TwoFragment : Fragment() {
     val noticeDatas = mutableListOf<NoticeData>()
     val rvAdapter = RVAdapter(noticeDatas)
     override fun onCreateView(
@@ -91,8 +93,11 @@ class Scholarship_Fragment : Fragment() {
                     val pkid: String = element.getElementsByTag("a").attr("onclick").split("'")[3]
                     val link: String =
                         "https://www.swu.ac.kr//front/boardview.do?pkid=${pkid}&menuGubun=1&siteGubun=1&bbsConfigFK=5"
-                    val noticeData = NoticeData(title, time, link)
+                    val noticeData = NoticeData(title, time, link, "two" + pkid)
                     noticeDatas.add(noticeData)
+                    //북마크 저장할때 사용할 키
+                    //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                    //pushKeyList.add("two" + pkid)
                 }
 
                 //UI에 접근할 수 있음

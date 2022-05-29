@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -103,8 +105,11 @@ class FourFragment : Fragment() {
                     val link: String = "http://www.swu.ac.kr/front/boardview.do?"+"&pkid=" + pkid +
                             "&currentPage=1&menuGubun=1&siteGubun=1&bbsConfigFK=4&searchField=ALL&searchValue=&searchLowItem=ALL"
 
-                    val noticeData = NoticeData(title,date,link)
+                    val noticeData = NoticeData(title,date,link, "four" + pkid)
                     noticeDatas.add(noticeData)
+                    //북마크 저장할때 사용할 키
+                    //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                    //pushKeyList.add("four" + pkid)
                 }
 
                 //UI에 접근할 수 있음

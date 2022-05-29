@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
+import com.swproject.swprojectapp.utils.Auth
+import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -95,9 +97,12 @@ class BizFragment : Fragment() {
                     val date: String = element.select("td").get(3).text()
                     val value: String = element.select("td a").attr("value").toString()
                     val link="https://bizswu.swu.ac.kr/bbs/bbs/view.php?bbs_no=12&data_no=${value}&page_no=${page}&sub_id="
-                    val noticeData = NoticeData(title,date,link)
+                    val noticeData = NoticeData(title,date,link, "biz" + value)
                     Log.d("notice_",noticeData.toString())
                     noticeDatas.add(noticeData)
+                    //북마크 저장할때 사용할 키
+                    //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
+                    //pushKeyList.add("biz" + value)
                 }
 
                 //UI에 접근할 수 있음
