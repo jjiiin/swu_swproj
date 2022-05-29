@@ -3,7 +3,6 @@ package com.swproject.swprojectapp.mainFragment
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +20,6 @@ import com.google.firebase.ktx.Firebase
 import com.swproject.swprojectapp.Bookmark_Activity
 import com.swproject.swprojectapp.DepartmentFragment.*
 import com.swproject.swprojectapp.R
-import com.swproject.swprojectapp.SWU.Scholarship_Fragment
 import com.swproject.swprojectapp.utils.FBRef
 
 
@@ -108,7 +106,7 @@ class HomeFragment : Fragment() {
             //딜레이 시키기
             Handler().postDelayed(Runnable {
                 view.findViewById<TextView>(R.id.title).text = "장학"
-                parentFragmentManager.beginTransaction().replace(R.id.view, Scholarship_Fragment())
+                parentFragmentManager.beginTransaction().replace(R.id.view, TwoFragment())
                     .commit()
             }, 250)
         }

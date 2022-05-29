@@ -10,5 +10,6 @@ class FBRef {
         val usersRef = database.getReference("users")
         val keywordRef=database.getReference("keyword")
         val keyword_Subscribe_Ref= database.getReference("keyword_subscribe")
+        val bookmarkRef= database.getReference("bookmark")
     }
 }
