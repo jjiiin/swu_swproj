@@ -33,7 +33,7 @@
             android:layout_toEndOf="@+id/item_image"
             android:layout_toRightOf="@id/item_image"
             android:letterSpacing="-0.03"
-            android:text="Title 입니다Title 입니다Title 입니다Title 입니다Title 입니다"
+            android:text="학사 - 평생 키워드가 포함된 공지사항이 등록됐습니다."
             android:textColor="#101010"
             android:textSize="16sp"
             android:textStyle="normal" />

@@ -41,8 +41,8 @@ class FirebaseService : FirebaseMessagingService() {
             val link=message.data?.getValue("URL").toString()
             Log.d("fcm_",message.data?.getValue("URL").toString())
             createNotificationChannel()
-            sendNotification(title, body, link)
-            notiList(title,body,date)
+//            sendNotification(title, body, link)
+//            notiList(title,body,date)
 
         }else{
             Log.d("fcm_",message.data.toString()+"에러 발생")

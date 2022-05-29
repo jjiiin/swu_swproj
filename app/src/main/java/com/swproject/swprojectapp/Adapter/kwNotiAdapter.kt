@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.R
@@ -18,7 +19,7 @@ class kwNotiAdapter(val items:MutableList<kwModel>) : RecyclerView.Adapter<kwNot
 
     override fun onBindViewHolder(holder: kwNotiAdapter.ViewHolder, position: Int) {
         val item=items[position]
-        holder.body.text=item.dept+" - "+item.body
+        holder.body.text=item.dept+"  -  "+item.body
         //시간
         val calendar:Calendar = Calendar.getInstance()
         Log.d("time_1",calendar.get(Calendar.YEAR).toString())
@@ -41,6 +42,19 @@ class kwNotiAdapter(val items:MutableList<kwModel>) : RecyclerView.Adapter<kwNot
                 (calendar.get(Calendar.HOUR_OF_DAY) - item.date.minute).toString() + "분 전"
         }
 
+        //학과학교 별 이미지 다르게
+        val mainList= arrayListOf<String>()
+        mainList.add("학사")
+        mainList.add("장학")
+        mainList.add("행사")
+        mainList.add("채용/취업")
+        mainList.add("일반/봉사")
+        if(mainList.contains(item.dept)){
+            holder.image.setImageResource(R.drawable.noti_fr)
+        }else{
+            holder.image.setImageResource(R.drawable.kwnoti_dept)
+        }
+
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
@@ -52,6 +66,7 @@ class kwNotiAdapter(val items:MutableList<kwModel>) : RecyclerView.Adapter<kwNot
     inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val body: TextView =itemView.findViewById(R.id.content)
         val date: TextView =itemView.findViewById(R.id.date)
+        val image:ImageView=itemView.findViewById(R.id.item_image)
     }
 
     // (2) 리스너 인터페이스
