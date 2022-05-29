@@ -29,18 +29,10 @@ class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
 
     var dept_ids = arrayOf(
-        R.id.tv_korean,
-        R.id.tv_english,
-        R.id.tv_french,
-        R.id.tv_german,
-        R.id.tv_japanese,
-        R.id.tv_history,
-        R.id.tv_christian,
-        R.id.tv_communication_media,
-        R.id.tv_biz,
-        R.id.tv_digitalMedia,
-        R.id.tv_security_dept,
-        R.id.tv_software
+        R.id.tv_korean, R.id.tv_english, R.id.tv_french, R.id.tv_german, R.id.tv_japanese, R.id.tv_history, R.id.tv_christian,
+        R.id.tv_library, R.id.tv_socialwelfare, R.id.tv_children, R.id.tv_publicAdministration, R.id.tv_communication_media,R.id.tv_eduPsychology, R.id.tv_sports,
+        R.id.tv_chemistry, R.id.tv_gardening, R.id.tv_food,
+        R.id.tv_biz, R.id.tv_digitalMedia, R.id.tv_security_dept, R.id.tv_software, R.id.tv_industrialDesign
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -208,12 +200,86 @@ class HomeFragment : Fragment() {
 
 
         // 사과대
+        view.findViewById<TextView>(R.id.tv_library).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "문헌정보학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, LibraryInfoFragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_socialwelfare).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "사회복지학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, SocialWelfare_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_children).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "아동학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, Children_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_publicAdministration).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "행정학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, PublicAdministration_Fragment()).commit()
+            }, 250)
+        }
         view.findViewById<TextView>(R.id.tv_communication_media).setOnClickListener {
             view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
             Handler().postDelayed(Runnable {
                 view.findViewById<TextView>(R.id.title).text = "언론영상학부"
                 parentFragmentManager.beginTransaction()
                     .replace(R.id.view, Communications_Media_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_eduPsychology).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "교육심리학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, EduPsychology_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_sports).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "스포츠운동과학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, Sports_Fragment()).commit()
+            }, 250)
+        }
+
+        // 자과대
+        view.findViewById<TextView>(R.id.tv_chemistry).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "화학생명환경과학부"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, Chemistry_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_gardening).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "원예생명조경학과"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, Gardening_Fragment()).commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_food).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "식품응용시스템학부"
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.view, Food_Fragment()).commit()
             }, 250)
         }
 
@@ -247,6 +313,14 @@ class HomeFragment : Fragment() {
             Handler().postDelayed(Runnable {
                 view.findViewById<TextView>(R.id.title).text = "소프트웨어융합학과"
                 parentFragmentManager.beginTransaction().replace(R.id.view, Software_Fragment())
+                    .commit()
+            }, 250)
+        }
+        view.findViewById<TextView>(R.id.tv_industrialDesign).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "산업디자인학과"
+                parentFragmentManager.beginTransaction().replace(R.id.view, IndustrialDesign_Fragment())
                     .commit()
             }, 250)
         }
