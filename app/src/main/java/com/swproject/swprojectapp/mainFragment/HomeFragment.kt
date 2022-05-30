@@ -151,7 +151,7 @@ class HomeFragment : Fragment() {
             view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
             Handler().postDelayed(Runnable {
                 view.findViewById<TextView>(R.id.title).text = "영어영문학과"
-                parentFragmentManager.beginTransaction().replace(R.id.view, Korean_Fragment())
+                parentFragmentManager.beginTransaction().replace(R.id.view, English_Fragment())
                     .commit()
             }, 250)
         }
