@@ -3,43 +3,43 @@
     <string-array name="majorList">
         <item>선택안함</item>
 
-        <item>국어국문학과</item>
-        <item>영어영문학과</item>
-        <item>불어불문학과</item>
-        <item>독어독문학과</item>
-        <item>중어중문학과</item>
-        <item>일어일문학과</item>
-        <item>사학과</item>
-        <item>기독교학과</item>
+        <item>국어국문학과</item> <!-- 1-->
+        <item>영어영문학과</item><!-- 2-->
+        <item>불어불문학과</item><!-- 3-->
+        <item>독어독문학과</item><!-- 4-->
+        <item>중어중문학과</item><!-- 5-->
+        <item>일어일문학과</item><!-- 6-->
+        <item>사학과</item><!-- 7-->
+        <item>기독교학과</item><!-- 8-->
 
-        <item>경제학과</item>
-        <item>문헌정보학과</item>
-        <item>사회복지학과</item>
-        <item>아동학과</item>
-        <item>행정학과</item>
-        <item>언론영상학부</item>
-        <item>교육심리학과</item>
-        <item>스포츠운동과학과</item>
+        <item>경제학과</item><!-- 9-->
+        <item>문헌정보학과</item><!-- 10-->
+        <item>사회복지학과</item><!-- 11-->
+        <item>아동학과</item><!-- 12-->
+        <item>행정학과</item><!-- 13-->
+        <item>언론영상학부</item><!-- 14-->
+        <item>교육심리학과</item><!-- 15-->
+        <item>스포츠운동과학과</item><!-- 16-->
 
-        <item>수학과</item>
-        <item>화학생명환경과학부</item>
-        <item>원예생명조경학과</item>
-        <item>식품응용시스템학부</item>
+        <item>수학과</item><!-- 17-->
+        <item>화학생명환경과학부</item><!-- 18-->
+        <item>원예생명조경학과</item><!-- 19-->
+        <item>식품응용시스템학부</item><!-- 20-->
 
-        <item>경영학과</item>
-        <item>패션산업학과</item>
-        <item>디지털미디어학과</item>
-        <item>정보보호학과</item>
-        <item>소프트웨어융합학과</item>
-        <item>데이터사이언스학과</item>
-        <item>산업디자인학과</item>
+        <item>경영학과</item><!-- 21-->
+        <item>패션산업학과</item><!-- 22-->
+        <item>디지털미디어학과</item><!-- 23-->
+        <item>정보보호학과</item><!-- 24-->
+        <item>소프트웨어융합학과</item><!-- 25-->
+        <item>데이터사이언스학과</item><!-- 26-->
+        <item>산업디자인학과</item><!-- 27-->
 
-        <item>현대미술전공</item>
-        <item>공예전공</item>
-        <item>시각디자인전공</item>
-        <item>첨단미디어디자인전공</item>
+        <item>현대미술전공</item><!-- 28-->
+        <item>공예전공</item><!-- 29-->
+        <item>시각디자인전공</item><!-- 30-->
+        <item>첨단미디어디자인전공</item><!-- 31-->
 
-       <item>자율전공학부</item>
+       <item>자율전공학부</item><!-- 32-->
     </string-array>
 
 </resources>
