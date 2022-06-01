@@ -245,6 +245,14 @@
                 android:layout_marginBottom="15dp"
                 android:text="산업디자인학과" />
 
+            <TextView
+                android:id="@+id/tv_preMajors"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="자율전공학부" />
+
 
 
 

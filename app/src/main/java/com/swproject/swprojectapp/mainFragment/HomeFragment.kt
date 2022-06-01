@@ -323,6 +323,15 @@ class HomeFragment : Fragment() {
             }, 250)
         }
 
+        // 자율전공학부
+        view.findViewById<TextView>(R.id.tv_preMajors).setOnClickListener {
+            view.findViewById<DrawerLayout>(R.id.drawer_layout).closeDrawer(GravityCompat.START)
+            Handler().postDelayed(Runnable {
+                view.findViewById<TextView>(R.id.title).text = "자율전공학부"
+                parentFragmentManager.beginTransaction().replace(R.id.view, Premajors_Fragment())
+                    .commit()
+            }, 250)
+        }
 
         // Inflate the layout for this fragment
         return view
