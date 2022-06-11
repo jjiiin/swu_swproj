@@ -95,7 +95,10 @@ class FourFragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
-                    //Log.d("뭘까", element.getElementsByTag("a").attr("onclick").toString())
+                    var top = false
+                    if(element.className().equals("notice"))
+                        top = true
+
                     val title: String =
                         element.select("td.title div").get(1).text()
                     val date: String = element.select("td").get(3).text()
@@ -105,7 +108,7 @@ class FourFragment : Fragment() {
                     val link: String = "http://www.swu.ac.kr/front/boardview.do?"+"&pkid=" + pkid +
                             "&currentPage=1&menuGubun=1&siteGubun=1&bbsConfigFK=4&searchField=ALL&searchValue=&searchLowItem=ALL"
 
-                    val noticeData = NoticeData(title,date,link, "four" + pkid)
+                    val noticeData = NoticeData(title,date,link, "four" + pkid,top)
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키
                     //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

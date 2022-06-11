@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.R
 import com.swproject.swprojectapp.dataModel.NoticeData
-import com.swproject.swprojectapp.utils.Auth
-import com.swproject.swprojectapp.utils.FBRef
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
@@ -83,6 +81,10 @@ class DigitalMedia_fragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.className().equals("kboard-list-notice"))
+                        top = true
+
                     val title = element.getElementsByClass("cut_strings").text()
                     val date = element.getElementsByClass("kboard-list-date").text()
                     if((title != "")){
@@ -91,7 +93,7 @@ class DigitalMedia_fragment : Fragment() {
                         val link2 = link1.split("&uid=")
                         val link3 = link2[1].split("&")
                         val id = link3[0]
-                        val noticeData = NoticeData(title,date, link, "digitalMedia" + id)
+                        val noticeData = NoticeData(title,date, link, "digitalMedia" + id, top)
                         noticeDatas.add(noticeData)
                         //북마크 저장할때 사용할 키
                         //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

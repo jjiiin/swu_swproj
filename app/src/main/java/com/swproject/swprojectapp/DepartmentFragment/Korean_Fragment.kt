@@ -83,6 +83,7 @@ class Korean_Fragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+
                     val title = element.getElementsByClass("subject").text()
                     val date = element.getElementsByClass("text-center regdate").text()
                     if((title != "")){

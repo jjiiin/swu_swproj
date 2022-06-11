@@ -83,12 +83,16 @@ class History_Fragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.getElementsByTag("td").get(1).text().contains("[공지사항]"))
+                        top = true
+
                     val title = element.getElementsByTag("a").text()
                     val date = element.getElementsByClass("text-center regdate").text()
                     if((title != "")){
                         val link = "http://history.swu.ac.kr/bbs/bbs/view.php?bbs_no=6&data_no=" + element.getElementsByTag("a").attr("value")+"&page_no=${page}"
                         val id = element.getElementsByTag("a").attr("value")
-                        val noticeData = NoticeData(title,date, link, "history" + id)
+                        val noticeData = NoticeData(title,date, link, "history" + id,top)
                         noticeDatas.add(noticeData)
                         //북마크 저장할때 사용할 키
                         //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

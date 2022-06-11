@@ -88,12 +88,16 @@ class TwoFragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.className().equals("notice"))
+                        top = true
+
                     val title: String = element.getElementsByClass("title").text().toString()
                     val time: String = element.getElementsByTag("td").get(3).text().toString()
                     val pkid: String = element.getElementsByTag("a").attr("onclick").split("'")[3]
                     val link: String =
                         "https://www.swu.ac.kr//front/boardview.do?pkid=${pkid}&menuGubun=1&siteGubun=1&bbsConfigFK=5"
-                    val noticeData = NoticeData(title, time, link, "two" + pkid)
+                    val noticeData = NoticeData(title, time, link, "two" + pkid, top)
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키
                     //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

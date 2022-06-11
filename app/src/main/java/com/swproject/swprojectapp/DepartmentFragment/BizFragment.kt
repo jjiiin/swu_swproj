@@ -86,18 +86,22 @@ class BizFragment : Fragment() {
         thread {
             val URL = "https://bizswu.swu.ac.kr/bbs/bbs/?bbs_no=12&page_no=${page}&sub_id=&search_kind=&search_text="//
             val doc: Document = Jsoup.connect(URL).get()
-            val elements: Elements = doc.select("table")
+            val elements: Elements = doc.select("table").get(0)
                 .select("tbody")
                 .select("tr")
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.getElementsByTag("td").get(0).text().contains("-"))
+                        top = true
+
                     val title: String =
                         element.getElementsByTag("td").get(1).text()
                     val date: String = element.select("td").get(3).text()
                     val value: String = element.select("td a").attr("value").toString()
                     val link="https://bizswu.swu.ac.kr/bbs/bbs/view.php?bbs_no=12&data_no=${value}&page_no=${page}&sub_id="
-                    val noticeData = NoticeData(title,date,link, "biz" + value)
+                    val noticeData = NoticeData(title,date,link, "biz" + value,top)
                     Log.d("notice_",noticeData.toString())
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키

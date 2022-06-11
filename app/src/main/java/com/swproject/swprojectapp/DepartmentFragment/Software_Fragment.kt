@@ -85,6 +85,10 @@ class Software_Fragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.className().equals("kboard-list-notice"))
+                        top = true
+
                     if(page>1 && element.className().equals("kboard-list-notice"))
                         continue
                     val title: String =
@@ -96,7 +100,7 @@ class Software_Fragment : Fragment() {
                     val link2 = link1.split("&uid=")
                     val link3 = link2[1].split("&")
                     val id = link3[0]
-                    val noticeData = NoticeData(title, date, link, "software" + id)
+                    val noticeData = NoticeData(title, date, link, "software" + id,top)
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키
                     //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

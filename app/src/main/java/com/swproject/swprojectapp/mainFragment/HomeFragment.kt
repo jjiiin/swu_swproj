@@ -30,7 +30,8 @@ class HomeFragment : Fragment() {
         R.id.tv_korean, R.id.tv_english, R.id.tv_french, R.id.tv_german, R.id.tv_japanese, R.id.tv_history, R.id.tv_christian,
         R.id.tv_library, R.id.tv_socialwelfare, R.id.tv_children, R.id.tv_publicAdministration, R.id.tv_communication_media,R.id.tv_eduPsychology, R.id.tv_sports,
         R.id.tv_chemistry, R.id.tv_gardening, R.id.tv_food,
-        R.id.tv_biz, R.id.tv_digitalMedia, R.id.tv_security_dept, R.id.tv_software, R.id.tv_industrialDesign
+        R.id.tv_biz, R.id.tv_digitalMedia, R.id.tv_security_dept, R.id.tv_software, R.id.tv_industrialDesign,
+        R.id.tv_preMajors
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

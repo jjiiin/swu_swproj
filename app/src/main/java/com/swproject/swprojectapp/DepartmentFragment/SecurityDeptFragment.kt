@@ -91,13 +91,17 @@ class SecurityDeptFragment : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.select("td").get(0).text().equals("공지"))
+                        top = true
+
                     val title: String = element.select("td").get(1).text()//get(2)=첨부파일
                     val date: String = element.select("td").get(2).text()
                     val link: String = "http://security.swu.ac.kr"+element.select("td a").attr("href")
                     val link1 = element.select("td a").attr("href")
                     val link2 = link1.split("&idx=")
                     val id = link2[1]
-                    val noticeData = NoticeData(title, date, link, "security" + id)
+                    val noticeData = NoticeData(title, date, link, "security" + id,top)
 
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키

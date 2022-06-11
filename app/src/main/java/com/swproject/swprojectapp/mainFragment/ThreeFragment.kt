@@ -87,6 +87,10 @@ class ThreeFragement : Fragment() {
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if(element.className().equals("notice"))
+                        top = true
+
                     val title: String =
                         element.select("td.title div").get(1).text()
                     val date: String = element.select("td").get(3).text()
@@ -97,7 +101,7 @@ class ThreeFragement : Fragment() {
                         "http://www.swu.ac.kr/front/boardview.do?" + "&pkid=" + pkid +
                                 "&currentPage=1&menuGubun=1&siteGubun=1&bbsConfigFK=4&searchField=ALL&searchValue=&searchLowItem=ALL"
 
-                    val noticeData = NoticeData(title, date, link, "three" + pkid)
+                    val noticeData = NoticeData(title, date, link, "three" + pkid,top)
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키
                     //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key
