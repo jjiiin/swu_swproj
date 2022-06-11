@@ -59,7 +59,10 @@ class Chemistry_Fragment : Fragment() {
                     val date = element.getElementsByClass("blog-date").text()
                     if((title != "")){
                         val link = "https://swuchemistry.weebly.com/news--events"
-                        val noticeData = NoticeData(title,date, link)
+                        val link1 = element.getElementsByClass("blog-title-link blog-link").attr("href")
+                        val link2 = link1.split("/")
+                        val id = link2[4]
+                        val noticeData = NoticeData(title,date, link, "chemistry" + id)
                         noticeDatas.add(noticeData)
                     }
 
