@@ -127,7 +127,7 @@ class German_Fragment : Fragment() {
     fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
-            val URL = "https://german.swu.ac.kr/bbs/bbs/?bbs_no=6&page_no=${page}&search_text=${value}"
+            val URL = "https://german.swu.ac.kr/bbs/bbs/?bbs_no=6&page_no=${page}&search_kind=subject&search_text=${value}"
             val doc: Document = Jsoup.connect(URL).get()
 
             val elements: Elements = doc.select("table").select("tbody tr")

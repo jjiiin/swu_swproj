@@ -125,7 +125,7 @@ class LibraryInfoFragment : Fragment() {
     fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
-            val URL = "http://swulis.net/?pageid=${page}&page_id=51&mod=list&keyword=${value}"
+            val URL = "http://swulis.net/?pageid=${page}&page_id=51&mod=list&target=&keyword=${value}"
             val doc: Document = Jsoup.connect(URL).get()
 
             val elements: Elements = doc.select("div.kboard-list").select("tbody tr")

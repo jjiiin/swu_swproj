@@ -137,7 +137,7 @@ class SecurityDeptFragment : Fragment() {
         //스레드 생성
         thread {
             //정보보호학과 공지사항 홈페이지
-            val URL2 ="http://security.swu.ac.kr/sub.html?page=department_notice&page1=${page}&searchKey=1&searchValue=${value}"
+            val URL2 ="http://security.swu.ac.kr/sub.html?page=department_notice&page1=${page}&searchKey=2&searchValue=${value}"
             val doc2: Document = Jsoup.connect(URL2).get()
             val elements: Elements = doc2.select("table.board")
                 .select("tbody")

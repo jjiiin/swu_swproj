@@ -128,7 +128,7 @@ class Communications_Media_Fragment : Fragment() {
     fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
-            val URL = "https://www.swumedia.com/bbs/board.php?tbl=bbs52&page=${page}&findWord=${value}"
+            val URL = "https://www.swumedia.com/bbs/board.php?tbl=bbs52&page=${page}&findType=&findWord=${value}"
             val doc: Document = Jsoup.connect(URL).get()
 
             val elements: Elements = doc.select("td.responsive03")
