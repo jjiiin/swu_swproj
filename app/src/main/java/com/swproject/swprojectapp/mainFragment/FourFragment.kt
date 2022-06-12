@@ -81,7 +81,7 @@ class FourFragment : Fragment() {
             .setBackgroundColor(Color.parseColor("#a53235"))
 
 
-        val searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
+        var searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
         view.findViewById<TextView>(R.id.btn1).setOnClickListener {
             searchCrawlingThread(1, searchValue.toString())
             clickIndex = 1
@@ -125,7 +125,7 @@ class FourFragment : Fragment() {
 
 
         getActivity()?.findViewById<Button>(R.id.searchBtn)?.setOnClickListener {
-            val searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
+            searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
             searchCrawlingThread(1, searchValue.toString())
             clickIndex = 1
         }
