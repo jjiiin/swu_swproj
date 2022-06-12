@@ -4,30 +4,24 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/drawable/bookmark_checkbox.xml" value="0.267" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/drawable/home_nav_selector.xml" value="0.2415" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/activity_bookmark.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/activity_login.xml" value="0.38153846153846155" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_biz.xml" value="0.22" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_communications__media_.xml" value="0.3875" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_five.xml" value="0.221875" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_four.xml" value="0.221875" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_one.xml" value="0.221875" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_scholarship.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_security_dept.xml" value="0.221875" />
-        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_software.xml" value="0.22" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_scholarship.xml" value="0.3875" />
+        <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_software.xml" value="0.3875" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/fragment_three.xml" value="0.22291666666666668" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/home_include_drawer.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/layout/rv_item_notice.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/gju06/AndroidStudioProjects/swu_swproj/app/src/main/res/menu/main_nav.xml" value="0.28888888888888886" />
-        <entry key="..\:/Users/gju06/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_dropdown_item_1line.xml" value="0.3875" />
         <entry key="..\:/Users/gju06/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.3875" />
         <entry key="..\:/Users/pingu/.gradle/caches/transforms-3/d55daa4bd0344635818e9a006400d3cc/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/drawable/bookmark_checkbox.xml" value="0.1395" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_bookmark.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_join.xml" value="0.2" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_splash.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join1.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join2.xml" value="0.2390625" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_my.xml" value="0.25364583333333335" />
