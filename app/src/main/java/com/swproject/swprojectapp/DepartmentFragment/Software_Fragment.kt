@@ -7,6 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -63,7 +66,7 @@ class Software_Fragment : Fragment() {
         //크롤링
         //딜레이 시키기
         Handler().postDelayed(Runnable {
-            crawlingThread(1)   //앱 들어가면 1페이지 보이게
+            searchCrawlingThread(1)   //앱 들어가면 1페이지 보이게
         },250)
 
         //앱 들어가면 1페이지 클릭된것처럼
@@ -72,54 +75,63 @@ class Software_Fragment : Fragment() {
         view.findViewById<TextView>(R.id.btn1)
             .setBackgroundColor(Color.parseColor("#a53235"))
 
+
+        val searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
         view.findViewById<TextView>(R.id.btn1).setOnClickListener {
-            crawlingThread(1)
+            searchCrawlingThread(1, searchValue.toString())
             clickIndex = 1
         }
         view.findViewById<TextView>(R.id.btn2).setOnClickListener {
-            crawlingThread(2)
+            searchCrawlingThread(2, searchValue.toString())
             clickIndex = 2
         }
         view.findViewById<TextView>(R.id.btn3).setOnClickListener {
-            crawlingThread(3)
+            searchCrawlingThread(3, searchValue.toString())
             clickIndex = 3
         }
         view.findViewById<TextView>(R.id.btn4).setOnClickListener {
-            crawlingThread(4)
+            searchCrawlingThread(4, searchValue.toString())
             clickIndex = 4
         }
         view.findViewById<TextView>(R.id.btn5).setOnClickListener {
-            crawlingThread(5)
+            searchCrawlingThread(5, searchValue.toString())
             clickIndex = 5
         }
         view.findViewById<TextView>(R.id.btn6).setOnClickListener {
-            crawlingThread(6)
+            searchCrawlingThread(6, searchValue.toString())
             clickIndex = 6
         }
         view.findViewById<TextView>(R.id.btn7).setOnClickListener {
-            crawlingThread(7)
+            searchCrawlingThread(7, searchValue.toString())
             clickIndex = 7
         }
         view.findViewById<TextView>(R.id.btn8).setOnClickListener {
-            crawlingThread(8)
+            searchCrawlingThread(8, searchValue.toString())
             clickIndex = 8
         }
         view.findViewById<TextView>(R.id.btn9).setOnClickListener {
-            crawlingThread(9)
+            searchCrawlingThread(9, searchValue.toString())
             clickIndex = 9
         }
         view.findViewById<TextView>(R.id.btn10).setOnClickListener {
-            crawlingThread(10)
+            searchCrawlingThread(10, searchValue.toString())
             clickIndex = 10
+        }
+
+
+        getActivity()?.findViewById<Button>(R.id.searchBtn)?.setOnClickListener {
+            val searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
+            searchCrawlingThread(1, searchValue.toString())
+            clickIndex = 1
         }
         return view
     }
 
-    fun crawlingThread(page: Int) {
+    fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
             val URL =
-                "http://swuswc.cafe24.com/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/%ED%95%99%EA%B3%BC-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?pageid=${page}"
+                "http://swuswc.cafe24.com/%ea%b3%b5%ec%a7%80%ec%82%ac%ed%95%ad/%ED%95%99%EA%B3%BC-%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD/?pageid=${page}&keyword=${value}"
             val doc: Document = Jsoup.connect(URL).get()
 
             val elements: Elements = doc.select("div.kboard-list tbody").select("tr")

@@ -3,14 +3,17 @@ package com.swproject.swprojectapp.mainFragment
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -25,6 +28,7 @@ import com.swproject.swprojectapp.utils.FBRef
 
 class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
+    val keywordList = mutableListOf<String>()
 
     var dept_ids = arrayOf(
         R.id.tv_korean, R.id.tv_english, R.id.tv_french, R.id.tv_german, R.id.tv_japanese, R.id.tv_history, R.id.tv_christian,
@@ -55,7 +59,7 @@ class HomeFragment : Fragment() {
                 select_dept[1] = Integer.parseInt(snapshot.child("major2").value.toString())
                 select_dept[2] = Integer.parseInt(snapshot.child("major3").value.toString())
 
-                 //선택한 학과만 메뉴에 보이기
+                //선택한 학과만 메뉴에 보이기
                 var depts_array = res.getStringArray(R.array.majorList)
                 for (i in 0 until dept_ids.count()) {
                     var gone = true
@@ -82,6 +86,27 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireActivity(), Bookmark_Activity::class.java)
             startActivity(intent)
         }
+
+        //키워드 리스트 받아오기
+        val schRef = FBRef.usersRef.child(auth.currentUser!!.uid).child("keyword")
+        schRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                keywordList.clear()
+                for (DataModel in snapshot.children) {
+                    if (DataModel != null) {
+                        keywordList.add(DataModel.getValue(String::class.java)!!)
+                    }
+                }
+                var autoSearch = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)
+                var adapter = context?.let { ArrayAdapter<String>(it, android.R.layout.simple_dropdown_item_1line, keywordList) }
+                autoSearch?.setAdapter(adapter)
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
 
         //처음에 학사 공지 자동으로 보이게

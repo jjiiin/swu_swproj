@@ -259,6 +259,17 @@
 
 
 
+
+
         </LinearLayout>
+
+<!--        <Switch-->
+<!--            android:id="@+id/keywordNoti_switch"-->
+<!--            android:layout_gravity="center_horizontal|bottom"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="키워드 적용"/>-->
+
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

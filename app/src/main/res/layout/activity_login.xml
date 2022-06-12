@@ -27,6 +27,7 @@
         android:layout_gravity="center"
         android:paddingLeft="15dp"
         android:background="@drawable/dialog_edittext"
+        android:inputType="textEmailAddress"
         android:hint="이메일"/>
     <EditText
         android:id="@+id/pwdArea"
@@ -36,6 +37,8 @@
         android:layout_margin="10dp"
         android:paddingLeft="15dp"
         android:background="@drawable/dialog_edittext"
+        android:inputType="textPassword"
+        android:password="true"
         android:hint="비밀번호"/>
 
     <Button

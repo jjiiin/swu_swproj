@@ -60,7 +60,7 @@
         android:weightSum="6"
         app:layout_constraintTop_toBottomOf="@+id/top_layout">
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/editText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -68,10 +68,14 @@
             android:layout_weight="5"
             android:background="@drawable/dialog_edittext"
             android:hint="검색어를 입력하세요"
+            android:inputType="text"
             android:padding="10dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:completionHint="키워드 목록"
+            android:completionThreshold="0" />
 
         <Button
+            android:id="@+id/searchBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
