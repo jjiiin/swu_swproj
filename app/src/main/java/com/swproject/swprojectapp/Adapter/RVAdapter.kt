@@ -1,6 +1,8 @@
 package com.swproject.swprojectapp.Adapter
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -29,20 +32,12 @@ class RVAdapter(val items: MutableList<NoticeData>) : RecyclerView.Adapter<RVAda
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(items[position])
-
         // 클릭했을 때
         holder.itemView.setOnClickListener {
             // 웹으로 띄우기
             val openUrl = Intent(Intent.ACTION_VIEW)
             openUrl.data = Uri.parse(items.get(position).link)
             ContextCompat.startActivity(holder.itemView.context, openUrl, null)
-
-
-            // 결과 화면으로 intent
-//            val link = items.get(position).link
-//            val intent = Intent(holder.itemView.context, ClickResult::class.java)
-//            intent.putExtra("result_link", link)
-//            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
     }
 
@@ -54,6 +49,16 @@ class RVAdapter(val items: MutableList<NoticeData>) : RecyclerView.Adapter<RVAda
         fun bindItems(item: NoticeData) {
             itemView.findViewById<TextView>(R.id.tv_title).text = item.title
             itemView.findViewById<TextView>(R.id.tv_date).text = item.date
+            // 상단고정 공지면 배경색 바꾸기
+            if(item.noticeTop){
+                itemView.findViewById<LinearLayout>(R.id.item_background).setBackgroundColor(
+                    Color.parseColor("#FFDEDE"))
+            }
+            else{
+                itemView.findViewById<LinearLayout>(R.id.item_background).setBackgroundColor(
+                    Color.WHITE)
+            }
+
             getBookmark(item.bookmarkKey, itemView)
             //북마크 클릭시
             itemView.findViewById<CheckBox>(R.id.checkbox_bookmark)

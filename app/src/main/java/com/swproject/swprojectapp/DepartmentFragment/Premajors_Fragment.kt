@@ -22,7 +22,7 @@ import org.jsoup.select.Elements
 import kotlin.concurrent.thread
 import kotlin.properties.Delegates
 
-class LibraryInfoFragment : Fragment() {
+class Premajors_Fragment : Fragment() {
     val noticeDatas = mutableListOf<NoticeData>()
     val rvAdapter = RVAdapter(noticeDatas)
 
@@ -125,25 +125,21 @@ class LibraryInfoFragment : Fragment() {
     fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
-            val URL = "http://swulis.net/?pageid=${page}&page_id=51&mod=list&target=&keyword=${value}"
+            val URL = "https://premajors.swu.ac.kr/bbs/bbs/?bbs_no=10&page_no=${page}&search_kind=subject&search_text=${value}"
             val doc: Document = Jsoup.connect(URL).get()
 
-            val elements: Elements = doc.select("div.kboard-list").select("tbody tr")
+            val elements: Elements = doc.select("tbody").get(0).select("tr")
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
-                    // 상단 고정은 안보이게
-                    if(element.className().equals("kboard-list-notice"))
+                    if(page>1 && element.getElementsByTag("a").text().contains("[공지사항]"))
                         continue
-
-                    val title = element.getElementsByClass("kboard-default-cut-strings").text()
-                    val date = element.getElementsByClass("contents-item kboard-date").text()
+                    val title = element.getElementsByTag("a").text()
+                    val date = element.getElementsByTag("td").get(2).text()
                     if((title != "")){
-                        val link = "http://swulis.net" + element.getElementsByTag("a").attr("href")
-                        val link1 = element.getElementsByTag("a").attr("href")
-                        val link2 = link1.split("&uid=")
-                        val id = link2[1]
-                        val noticeData = NoticeData(title,date, link, "libraryInfo" + id)
+                        val link = "https://premajors.swu.ac.kr/bbs/bbs/view.php?bbs_no=10&data_no=" + element.getElementsByTag("a").attr("value")
+                        val value = element.getElementsByTag("a").attr("value")
+                        val noticeData = NoticeData(title,date, link, "premajors" + value)
                         noticeDatas.add(noticeData)
                     }
 

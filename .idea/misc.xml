@@ -17,9 +17,11 @@
         <entry key="..\:/Users/gju06/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.3875" />
         <entry key="..\:/Users/pingu/.gradle/caches/transforms-3/d55daa4bd0344635818e9a006400d3cc/transformed/appcompat-1.4.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/drawable/bookmark_checkbox.xml" value="0.1395" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_bookmark.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_join.xml" value="0.2" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/activity_splash.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join1.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_join2.xml" value="0.2390625" />
         <entry key="..\:/Users/pingu/swu_swproj/app/src/main/res/layout/fragment_my.xml" value="0.25364583333333335" />

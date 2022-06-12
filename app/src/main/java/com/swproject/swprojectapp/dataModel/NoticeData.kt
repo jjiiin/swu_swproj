@@ -5,5 +5,6 @@ data class NoticeData(
     val title: String = "",
     val date:String="",
     val link:String="",
-    val bookmarkKey:String = ""
+    val bookmarkKey:String = "",
+    val noticeTop:Boolean = false
 )

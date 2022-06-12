@@ -1,5 +1,7 @@
 package com.swproject.swprojectapp.DepartmentFragment
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
@@ -7,6 +9,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AutoCompleteTextView
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +25,7 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.select.Elements
 import kotlin.concurrent.thread
+import kotlin.properties.Delegates
 
 
 class BizFragment : Fragment() {
@@ -40,65 +46,121 @@ class BizFragment : Fragment() {
         rv.adapter = rvAdapter
         rv.layoutManager = LinearLayoutManager(context)
         rv.addItemDecoration(DividerItemDecoration(context, 1))
+        var clickIndex: Int by Delegates.observable(1) { props, old, new ->
+            val old_resourceName = resources.getIdentifier(
+                "btn${old}",
+                "id",
+                requireContext().packageName
+            )
+            val new_resourceName = resources.getIdentifier(
+                "btn${new}",
+                "id",
+                requireContext().packageName
+            )
+            //이전에 선택된것 효과 해제
+            view.findViewById<TextView>(old_resourceName)
+                .setTextColor(Color.parseColor("#000000"))
+            view.findViewById<TextView>(old_resourceName)
+                .setBackgroundColor(Color.parseColor("#FFFFFF"))
+
+            //현재 선택된것 효과 적용
+            view.findViewById<TextView>(new_resourceName)
+                .setTextColor(Color.parseColor("#FFFFFF"))
+            view.findViewById<TextView>(new_resourceName)
+                .setBackgroundColor(Color.parseColor("#a53235"))
+        }
+
 
         //크롤링
         //딜레이 시키기
         Handler().postDelayed(Runnable {
-            crawlingThread(1)   //앱 들어가면 1페이지 보이게
+            searchCrawlingThread(1)   //앱 들어가면 1페이지 보이게
         },250)
 
+        //앱 들어가면 1페이지 클릭된것처럼
+        view.findViewById<TextView>(R.id.btn1)
+            .setTextColor(Color.parseColor("#FFFFFF"))
+        view.findViewById<TextView>(R.id.btn1)
+            .setBackgroundColor(Color.parseColor("#a53235"))
+
+
+        var searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
         view.findViewById<TextView>(R.id.btn1).setOnClickListener {
-            crawlingThread(1)
+            searchCrawlingThread(1, searchValue.toString())
+            clickIndex = 1
         }
         view.findViewById<TextView>(R.id.btn2).setOnClickListener {
-            crawlingThread(2)
+            searchCrawlingThread(2, searchValue.toString())
+            clickIndex = 2
         }
         view.findViewById<TextView>(R.id.btn3).setOnClickListener {
-            crawlingThread(3)
+            searchCrawlingThread(3, searchValue.toString())
+            clickIndex = 3
         }
         view.findViewById<TextView>(R.id.btn4).setOnClickListener {
-            crawlingThread(4)
+            searchCrawlingThread(4, searchValue.toString())
+            clickIndex = 4
         }
         view.findViewById<TextView>(R.id.btn5).setOnClickListener {
-            crawlingThread(5)
+            searchCrawlingThread(5, searchValue.toString())
+            clickIndex = 5
         }
         view.findViewById<TextView>(R.id.btn6).setOnClickListener {
-            crawlingThread(6)
+            searchCrawlingThread(6, searchValue.toString())
+            clickIndex = 6
         }
         view.findViewById<TextView>(R.id.btn7).setOnClickListener {
-            crawlingThread(7)
+            searchCrawlingThread(7, searchValue.toString())
+            clickIndex = 7
         }
         view.findViewById<TextView>(R.id.btn8).setOnClickListener {
-            crawlingThread(8)
+            searchCrawlingThread(8, searchValue.toString())
+            clickIndex = 8
         }
         view.findViewById<TextView>(R.id.btn9).setOnClickListener {
-            crawlingThread(9)
+            searchCrawlingThread(9, searchValue.toString())
+            clickIndex = 9
         }
         view.findViewById<TextView>(R.id.btn10).setOnClickListener {
-            crawlingThread(10)
+            searchCrawlingThread(10, searchValue.toString())
+            clickIndex = 10
+        }
+
+
+        getActivity()?.findViewById<Button>(R.id.searchBtn)?.setOnClickListener {
+            searchValue = getActivity()?.findViewById<AutoCompleteTextView>(R.id.editText)?.text
+            searchCrawlingThread(1, searchValue.toString())
+            clickIndex = 1
         }
 
 
         return view
     }
-    fun crawlingThread(page: Int) {
+
+    fun searchCrawlingThread(page: Int, value: String = "") {
         //스레드 생성
         thread {
-            val URL = "https://bizswu.swu.ac.kr/bbs/bbs/?bbs_no=12&page_no=${page}&sub_id=&search_kind=&search_text="//
+            val URL =
+                "https://bizswu.swu.ac.kr/bbs/bbs/?bbs_no=12&page_no=${page}&search_kind=subject&search_text=${value}"
             val doc: Document = Jsoup.connect(URL).get()
-            val elements: Elements = doc.select("table")
+            val elements: Elements = doc.select("table").get(0)
                 .select("tbody")
                 .select("tr")
             if (elements != null) {
                 noticeDatas.clear()
                 for (element in elements) {
+                    var top = false
+                    if (element.getElementsByTag("td").get(0).text().contains("-"))
+                        top = true
+
                     val title: String =
                         element.getElementsByTag("td").get(1).text()
                     val date: String = element.select("td").get(3).text()
                     val value: String = element.select("td a").attr("value").toString()
-                    val link="https://bizswu.swu.ac.kr/bbs/bbs/view.php?bbs_no=12&data_no=${value}&page_no=${page}&sub_id="
-                    val noticeData = NoticeData(title,date,link, "biz" + value)
-                    Log.d("notice_",noticeData.toString())
+                    val link =
+                        "https://bizswu.swu.ac.kr/bbs/bbs/view.php?bbs_no=12&data_no=${value}&page_no=${page}&sub_id="
+                    val noticeData = NoticeData(title, date, link, "biz" + value, top)
+                    Log.d("notice_", noticeData.toString())
                     noticeDatas.add(noticeData)
                     //북마크 저장할때 사용할 키
                     //val pushKey = FBRef.bookmarkRef.child(Auth.current_uid).push().key

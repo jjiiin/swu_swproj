@@ -13,6 +13,7 @@ import com.swproject.swprojectapp.Adapter.RVAdapter
 import com.swproject.swprojectapp.dataModel.NoticeData
 import com.swproject.swprojectapp.utils.Auth
 import com.swproject.swprojectapp.utils.FBRef
+import java.lang.Exception
 
 class Bookmark_Activity : AppCompatActivity() {
     val noticeDatas = mutableListOf<NoticeData>()
@@ -36,8 +37,12 @@ class Bookmark_Activity : AppCompatActivity() {
                     noticeDatas.clear()
                     for (data in snapshot.children) {
                         if (data.getValue() != null) {
-                            val noticeData = data.getValue(NoticeData::class.java)
-                            noticeDatas.add(noticeData!!)
+                            try{
+                                val noticeData = data.getValue(NoticeData::class.java)
+                                noticeDatas.add(noticeData!!)
+                            } catch (e:Exception){
+                                continue
+                            }
                         }
                     }
                     rvAdapter.notifyDataSetChanged()
