@@ -41,7 +41,7 @@ class FirebaseService : FirebaseMessagingService() {
             val link=message.data?.getValue("URL").toString()
             Log.d("fcm_",message.data?.getValue("URL").toString())
             createNotificationChannel()
-//            sendNotification(title, body, link)
+            sendNotification(title, body, link)
 //            notiList(title,body,date)
 
         }else{
