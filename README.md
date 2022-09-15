@@ -6,7 +6,7 @@
 <h3>🙌Introduce</h3>
 SWUTICE는 서울여자대학교 학교/학과 공지사항을 보여주고 관심 공지사항을 스크랩할 수 있습니다.
 <p>또한 사용자가 등록한 키워드가 포함된 공지사항이 게재되면, 푸쉬알림을 보내주는 코틀린 기반 안드로이드 어플리케이션입니다.</p>
-<br/><br/>
+<br/>
  
 
 <h3>✅Skills</h3>
@@ -27,8 +27,10 @@ SWUTICE는 서울여자대학교 학교/학과 공지사항을 보여주고 관�
 <br/><br/>
 
 <h3>📋Information Architecture</h3>
-<img width="60%" src="https://user-images.githubusercontent.com/87565629/190313266-8cb3dc61-040a-496a-b9af-e422304c67af.jpg"/>
-
+<img width="60%" src="https://user-images.githubusercontent.com/87565629/190314560-fda60afd-3479-4565-bd20-2838a0696ebb.png"/>
+<br/><br/>
 
 <h3>🖥️System Structure</h3>
-<img width="60%" src="https://user-images.githubusercontent.com/87565629/190313004-d636423e-72d2-4e9f-9b50-9efc19dbfb5f.jpg"/>
+<img width="60%" src="https://user-images.githubusercontent.com/87565629/190314612-26caecc9-ae8e-4518-ad80-9c94f2dd681d.png"/>
+
+<h3>👩‍👩‍👧Contributers</h3>
