@@ -27,6 +27,8 @@ SWUTICE는 서울여자대학교 학교/학과 공지사항을 보여주고 관�
 <br/><br/>
 
 <h3>📋Information Architecture</h3>
+![KakaoTalk_20220915_125545323](https://user-images.githubusercontent.com/87565629/190313266-8cb3dc61-040a-496a-b9af-e422304c67af.jpg)
 
 
 <h3>🖥️System Structure</h3>
+![KakaoTalk_20220915_125839826](https://user-images.githubusercontent.com/87565629/190313004-d636423e-72d2-4e9f-9b50-9efc19dbfb5f.jpg)
