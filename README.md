@@ -38,4 +38,10 @@ SWUTICE는 서울여자대학교 학교/학과 공지사항을 보여주고 관�
 <img width="60%" src="https://user-images.githubusercontent.com/87565629/190314612-26caecc9-ae8e-4518-ad80-9c94f2dd681d.png"/>
 
 <h3>👩‍👩‍👧Contributers👩‍👩‍👧</h3>
+<p/>
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fjjiiin%2Fswu_swproj.git&count_bg=%23AC1F19&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+<p/>
+
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=jjiiin&theme=gruvbox&show_icons=true)
 </div>
